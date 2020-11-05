@@ -5,4 +5,4 @@
  
  npm install 
  
- run app.js 
+ npm start

@@ -1,0 +1,41 @@
+{{#if category}}
+            <h1 class="category-heading">{{category}}</h1>
+        {{/if}}
+<div class="home-wrapper">
+        
+        <section class="recent-articles">
+                <br>
+
+                {{#if error}}
+                        <h1>no articles of this category</h1>
+                {{/if}}
+                {{#each post}}
+                 
+                       
+                             <article>
+                                 <img src="uploads/{{{this.thumbnail}}}" width="200" alt="img">
+                                 <div>
+                                       <p><a href="/display-article?id={{_id}}">{{title}}</a></p>
+                                        <div class="article-footer">
+                                        <h1>{{author}}</h3>
+                                        <h2>{{formatDate date}}</h3>
+                                        <button class="like_button"><i class="fa fa-thumbs-up"></i></button>
+                                    <a href="/display-article?id={{_id}}" ><button class="more-btn">More</button></a>
+                                    </div>
+                                </div>
+                           </article> 
+
+                          
+                {{/each}}
+{{!-- 
+        {{#each posts}}
+                {{#each this}}
+                        <li>{{this}}S</li>
+                {{/each}}
+        {{/each}} --}}
+            
+        </section>
+  </div>
+
+
+ 

@@ -1,0 +1,13 @@
+
+    <div class="post-container">
+
+        {{#each post}}
+            <img src="uploads/{{{this.thumbnail}}}" height="300" w="300">
+            <h1>{{title}}</h1>
+            <p>{{content}}</p>
+            <p class="author">posted by : {{author}}</p>
+            <p class="date">{{date}}</p>
+        {{/each}}
+
+
+    </div>

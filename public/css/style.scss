@@ -1,3 +1,12 @@
+
+@mixin shadow {
+
+    box-shadow: 10px 10px 10px -13px  red;
+    
+}
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -19,18 +28,24 @@ body{
     overflow-x: auto;
 }
 
+
+.category-heading{
+    padding: 1.2em; 
+    font-size: 2em;
+    text-decoration: underline;
+}
 header{
     display: flex;
     justify-content: space-between;
     padding: 1.3em; 
-    box-shadow: 0 10px 10px -10px red;
+    @include shadow ;
 
     .logo{
 
         color : red ;
         &:hover{
 
-            animation:  flipInX ;
+            animation:  bounce ;
             animation-duration: 1s ;
             animation-delay: 1ms;
             cursor: pointer;
@@ -50,72 +65,145 @@ header{
         }
     }
 }
+//footer
 
+    .footer{
 
-//home-style
-
-    .home-wrapper{
-
-            .home-main-section{
-
-                margin: 0.4em;
-                border: 1px solid black;
-                min-height: 360px;
-                display: flex;
-                flex-wrap: wrap;
-                width: 96%;
-                min-width: 450px;
-                padding: 0.5em;
-
-
-                .main-left{
-
-                    min-height: 340px;
-                    min-width: 446px;
-                    margin: 0 3px;
-                    background: red;
-                    height: 200px;
-                    width: 30%;
-                }
-
-                .main-right{
-
-                    width: 60%;
-                    height: 340px;
-                    margin: 0 3px;
-                    min-width: 446px;
-                    background: blue;
-                }
-
-            }
-
-            .home-middle-section{
-
-
-            }
-
-            .home-end-section{
-
-
-            }
-
+        height: 10em; 
+        width: 100%;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(228, 221, 221);
     }
 
 
 
 
+//footer end
 
+//home-style
+    .home-wrapper{
+        width: 100% ;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        .recent-articles{
+         
+            width: 70%;
+            padding: 0.5em ;
 
+            article {
+                margin: 3px; 
+                @include shadow ;
+                padding: 0.5em;
+                display: flex;
+                
+                
+                img{
+                    height: 230px ;
+                    width: 25%;
+                }
+                div{
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    h1{
+                        font-size: 1.6rem;
+                        color:red;
+                    }
+                    p{
+                        font-size: 1.4rem;
+                        font-weight: 200;
+                    }
+                    button{
 
+                        cursor: pointer;
+                        height: auto; 
+                        padding: 10px;
+                        width: auto;
+                        border: none ;
+                        background: rgb(236, 118, 118);
+                        font-size: 0.9rem;
+                        color : white ;
+                        box-shadow: 3px 3px 1px rgb(212, 208, 208);
+                    }
+                    .like_button{
+                        cursor: pointer;
+                        height: auto;
+                        padding: 10px;
+                        box-shadow: none;
+                        
+                        background: blue;
+                         
+                        i{
+                            color : white ;
+                            height: 0.5em;
+                            width: auto;
+                        }
+                    }
+                    .article-footer{
+                     display: flex ;
+                     flex-direction: row;
+                     justify-content: start;
+                     gap : 1em;
+                        
+                        h1{
+                            font-size: 0.9rem;
+                            color: white ;
+                            display: inline;
+                            background: orange;
+                            padding: 0.3em;
+                            height: 1.5em;
+                            width: auto;
+                            text-align: center;
+                             
+                        }
+                        h2{
+                            font-weight: 100;
+                            font-size: .8em;
 
+                        }
+                    }
+                }
+            }
 
+           
+        }
 
+        .right-section{
 
+            
+            width: 40vw;
+            h1{
+                font-size: 1.5em;
+                text-decoration: underline;
+                text-align: center;
+            }
 
-
-
-
+            ul{
+                padding: 2em;
+        
+            }
+            li{
+                width: 40% ;
+                margin-left: 40px;
+                list-style-type: none;
+                margin: 0 auto;
+                margin-bottom: 2px ;
+                padding: 0.4em;
+                a{
+                    font-size: large;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 //home style end
+
+
 .login-container
 {
  
@@ -171,31 +259,49 @@ header{
 .upload-container{
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding : 2rem ; 
     flex-direction: column;
     height: 100vh;
 
     
-    button{
-
-        padding: 1em;
-        font-size: 1.3rem;
-        color: #fffffF ;
-        background-color: #228B22 ;
-        border: none;
-        cursor: pointer;
-        box-shadow:4px 4px 3px rgb(116, 112, 112) ;
-        i{
-            margin-right: 1em;
-        }
-
-
-        &:hover{
-
-            transform: translateX(10px);
-            transform: translateY(-5px);
-        }
     }
+
+
+.error-box{
+    padding: 1em;
+    color : red ;
+    border : 1px solid black ;
+    margin-top: 1em;
+    font-size: 1rem;
+
 }
 
+
+//post-container
+.post-container{
+
+    display: flex;
+    padding: 2em;
+    border:1px solid black;
+    margin: 1em auto;
+    flex-direction: column;
+    width: 60%;
+    gap : 2em; 
+    h1{
+        font-size: 1.6em;
+        text-decoration: underline;
+    }
+    img{
+        width:30%;
+        margin: auto;
+    }
+    p{
+        font-size:1em ;
+    }
+    .author{
+
+        color : blue ;
+        font-size: 1.3em;
+    }
+    
+}

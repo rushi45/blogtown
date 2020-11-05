@@ -2,6 +2,26 @@
 
 
 
-        <button class="upload-file-btn"><i class="fa fa-upload"></i>Choose a file</button>
-       
+
+        {{#if filename}}
+                <form class="ui form" method="POST" action="/upload">
+                <label>Thumbnail:</label>{{filename}}<br>
+                <input type="hidden" value="{{filename}}" name="thumbnail">
+                 {{>post_form}}
+                </form>
+        {{else}}
+                
+        <form class="ui form" method="POST" action="/upload" enctype="multipart/form-data">
+                <label>Thumbnail:</label><br>
+                <input type="file" name="thumbnail_file" id="">
+                <input type="hidden" name="isFilePresesnt" value="true">
+                <input type="submit" value="verify">
+        </form>
+          {{/if}}
+</form> 
+{{#if errors}} 
+<div class="error-box">
+{{errors}}
+</div>
+{{/if}}
 </section>
